@@ -5,7 +5,6 @@ from langgraph.constants import START, END
 from langgraph.graph import StateGraph, MessagesState
 from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
 from langgraph.prebuilt import ToolNode, tools_condition
 
 from src.repository_search import MavenRepositoryClient
@@ -41,7 +40,6 @@ model_with_tools = model.bind_tools([get_versions])
 graph = StateGraph(MessagesState)
 graph.add_node("chat", chat_node)
 graph.add_node("tools", ToolNode([get_versions]))
-
 graph.add_edge(START, "chat")
 graph.add_conditional_edges(
     "chat",

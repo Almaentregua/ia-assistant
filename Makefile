@@ -5,3 +5,6 @@ install:
 
 create-env:
 	uv venv
+
+run-dev:
+	uv run langgraph dev
