@@ -18,7 +18,7 @@ class MavenRepositoryClient:
         """Fetch and parse all available versions for a given artifact."""
         html = self._fetch_html(group_id, artifact_id)
         versions = self._parse_versions(html)
-        return versions
+        return versions[:10]
 
     def get_latest(self, group_id: str, artifact_id: str) -> Optional[Dict[str, datetime]]:
         """Return the most recent version and its publication date."""
