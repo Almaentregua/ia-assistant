@@ -2,7 +2,7 @@
   "$schema": "https://langgra.ph/schema.json",
   "dependencies": ["."],
   "graphs": {
-    "agent": "./src/repository_assistant_v2.py:app"
+    "agent": "./src/agents/repository_assistant_v2.py:app"
   },
   "env": ".env"
 }
