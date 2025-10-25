@@ -3,7 +3,7 @@ from typing import List, Dict
 
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph, MessagesState
-from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
+from langchain_core.messages import SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.prebuilt import ToolNode, tools_condition
 
@@ -19,7 +19,7 @@ def feedback():
         exit()
 
 
-def chat_node(state:MessagesState):
+def chat_node(state: MessagesState) -> dict:
     sys_msg = SystemMessage(content="Eres un asistente especializado en dependencias de Java."
                                     + "Tu función es ayudar al usuario a encontrar la información más reciente sobre artefactos publicados en Maven Central, como la última versión disponible, la fecha de publicación y las ramas activas."
                                     + "Responde siempre en español, de manera clara, técnica y estructurada.")
