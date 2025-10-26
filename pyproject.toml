@@ -13,9 +13,18 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "black>=25.9.0",
+    "isort>=7.0.0",
     "langgraph-cli[inmem]>=0.4.4",
 ]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 include = ["*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+skip-string-normalization = true
+
+

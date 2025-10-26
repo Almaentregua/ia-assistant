@@ -16,9 +16,11 @@ class RepositoryAssistant:
     def __init__(self):
         self.model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
         self.model_with_tools = self.model.bind_tools([self.get_versions])
-        self.sys_msg = SystemMessage(content="Eres un asistente especializado en dependencias de Java."
-                                     + "Tu función es ayudar al usuario a encontrar la información más reciente sobre artefactos publicados en Maven Central, como la última versión disponible, la fecha de publicación y las ramas activas."
-                                     + "Responde siempre en español, de manera clara, técnica y estructurada.")
+        self.sys_msg = SystemMessage(
+            content="Eres un asistente especializado en dependencias de Java."
+            + "Tu función es ayudar al usuario a encontrar la información más reciente sobre artefactos publicados en Maven Central, como la última versión disponible, la fecha de publicación y las ramas activas."
+            + "Responde siempre en español, de manera clara, técnica y estructurada."
+        )
 
     def run(self, prompt: str):
         graph = StateGraph(MessagesState)
@@ -34,7 +36,7 @@ class RepositoryAssistant:
         )
         graph.add_edge("tools", "chat")
         app = graph.compile()
-    #    print(app.get_graph().draw_mermaid())
+        #    print(app.get_graph().draw_mermaid())
         return app.invoke({"messages": [self.sys_msg, HumanMessage(content=prompt)]})
 
     def feedback(self):
@@ -54,8 +56,6 @@ class RepositoryAssistant:
         """Fetch and parse all available versions for a given artifact."""
         maven_repository = MavenRepositoryClient()
         return maven_repository.get_versions(group_id, artifact_id)
-
-
 
 
 if __name__ == "__main__":

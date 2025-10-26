@@ -1,5 +1,6 @@
 import sqlite3
 
+
 class SQLiteCache:
     """Cache layer to store and query Maven artifact data locally in SQLite."""
 
@@ -16,7 +17,8 @@ class SQLiteCache:
         with sqlite3.connect(self.db_path) as conn:
             cur = conn.cursor()
 
-            cur.execute("""
+            cur.execute(
+                """
                 CREATE TABLE IF NOT EXISTS artifacts (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     group_id TEXT NOT NULL,
@@ -26,9 +28,11 @@ class SQLiteCache:
                     last_updated_at DATETIME,
                     UNIQUE(group_id, artifact_id)
                 );
-            """)
+            """
+            )
 
-            cur.execute("""
+            cur.execute(
+                """
                 CREATE TABLE IF NOT EXISTS versions (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
                     artifact_id INTEGER NOT NULL,
@@ -38,7 +42,8 @@ class SQLiteCache:
                     FOREIGN KEY (artifact_id) REFERENCES artifacts(id),
                     UNIQUE(artifact_id, version)
                 );
-            """)
+            """
+            )
 
             conn.commit()
         print("✅ SQLite cache initialized or verified.")

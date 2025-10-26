@@ -25,7 +25,9 @@ class MavenRepositoryClient:
         versions = self.get_versions(group_id, artifact_id)
         return versions[0] if versions else None
 
-    def get_latest_per_branch(self, group_id: str, artifact_id: str) -> Dict[str, Dict[str, datetime]]:
+    def get_latest_per_branch(
+        self, group_id: str, artifact_id: str
+    ) -> Dict[str, Dict[str, datetime]]:
         """Return the latest version per major.minor branch."""
         versions = self.get_versions(group_id, artifact_id)
         branches = defaultdict(list)
@@ -33,10 +35,7 @@ class MavenRepositoryClient:
             major_minor = ".".join(r["version"].split(".")[:2])
             branches[major_minor].append(r)
 
-        return {
-            branch: max(vers, key=lambda x: x["date"])
-            for branch, vers in branches.items()
-        }
+        return {branch: max(vers, key=lambda x: x["date"]) for branch, vers in branches.items()}
 
     # ----------------------------
     # Internal helpers
