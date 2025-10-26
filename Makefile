@@ -10,6 +10,9 @@ create-env:
 editable-install:
 	uv pip install -e .
 
+format:
+	black src
+
 run-dev:
 	uv run langgraph dev
 
