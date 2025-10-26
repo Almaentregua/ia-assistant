@@ -1,10 +1,9 @@
 from langgraph.constants import START
-from langgraph.graph import StateGraph, MessagesState
+from langgraph.graph import MessagesState, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
 from agents.dependency_assistant.nodes.conversation.node import chat_node
 from agents.dependency_assistant.nodes.conversation.tools import get_versions
-
 
 graph = StateGraph(MessagesState)
 graph.add_node("chat", chat_node)

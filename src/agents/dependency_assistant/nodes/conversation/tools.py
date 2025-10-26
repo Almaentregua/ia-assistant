@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Dict
+from typing import Dict, List
 
 from src.agents.dependency_assistant.nodes.conversation.repository_search import (
     MavenRepositoryClient,

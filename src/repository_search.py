@@ -1,8 +1,9 @@
-import requests
 import re
-from datetime import datetime
 from collections import defaultdict
-from typing import List, Dict, Optional
+from datetime import datetime
+from typing import Dict, List, Optional
+
+import requests
 
 
 class MavenRepositoryClient:
