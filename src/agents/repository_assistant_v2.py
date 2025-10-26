@@ -10,15 +10,6 @@ from langgraph.prebuilt import ToolNode, tools_condition
 from src.repository_search import MavenRepositoryClient
 
 
-def feedback():
-    # Get user feedback
-    user_approval = input("Do you want to continue? (yes/no): ")
-
-    # Check approval
-    if not user_approval.lower() == "yes":
-        exit()
-
-
 def chat_node(state: MessagesState):
     sys_msg = SystemMessage(
         content="Eres un asistente especializado en dependencias de Java."
