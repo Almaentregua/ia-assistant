@@ -2,8 +2,8 @@ from langgraph.constants import START
 from langgraph.graph import StateGraph, MessagesState
 from langgraph.prebuilt import ToolNode, tools_condition
 
-from src.agents.dependency_assistant.nodes.conversation.node import chat_node
-from src.agents.dependency_assistant.nodes.conversation.tools import get_versions
+from agents.dependency_assistant.nodes.conversation.node import chat_node
+from agents.dependency_assistant.nodes.conversation.tools import get_versions
 
 
 graph = StateGraph(MessagesState)

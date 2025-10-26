@@ -2,7 +2,7 @@ from langchain_core.messages import SystemMessage
 from langchain_openai import ChatOpenAI
 from langgraph.graph import MessagesState
 
-from src.agents.dependency_assistant.nodes.conversation.tools import get_versions
+from agents.dependency_assistant.nodes.conversation.tools import get_versions
 
 model = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 model_with_tools = model.bind_tools([get_versions])
