@@ -4,7 +4,8 @@
   "graphs": {
     "dependency_assistant": "./src/agents/dependency_assistant/agent.py:app",
     "agent_rag": "./src/agents/rag_assistant.py:app",
-    "agent_extractor": "./src/agents/extractor_assistant.py:app"
+    "agent_extractor": "./src/agents/extractor_assistant.py:app",
+    "multiply_assistant": "./src/agents/multiply_assistant_v2.py:agent"
   },
   "env": ".env"
 }
