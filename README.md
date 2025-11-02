@@ -35,3 +35,28 @@ pip install uv
 make install
 ```
 This will install all dependencies listed in pyproject.toml.
+
+🚀 4. Run the application
+
+You can run the application in two different modes:
+
+**Development mode (LangGraph Studio):**
+```bash
+make run-dev
+```
+This will start LangGraph Studio where you can interact with the agents defined in `langgraph.json`.
+
+**API mode (FastAPI):**
+```bash
+make run-api
+```
+This will start a FastAPI server at `http://localhost:8000` with endpoints to interact with the assistant.
+
+**Other useful commands:**
+```bash
+make format          # Format code with black
+make editable-install # Install package in editable mode
+make create-env      # Create virtual environment
+```
+
+

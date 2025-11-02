@@ -12,14 +12,9 @@ app = FastAPI()
 class Message(BaseModel):
     message: str
 
-
-@app.get("/")
-def hello():
-    return {"message": "hello world"}
-
-
 @app.post("/chat/{chat_id}")
 async def hello_name(chat_id: str, message: Message):
+    # TODO: add chat_id to the messages and use it to store the messages in the database
     messages = [HumanMessage(content=message.message)]
     response = agent.invoke({"messages": messages})
     last_message = response["messages"][-1]
