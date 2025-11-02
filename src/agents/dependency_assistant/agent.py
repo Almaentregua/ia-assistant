@@ -16,5 +16,5 @@ graph.add_conditional_edges(
     tools_condition,
 )
 graph.add_edge("tools", "chat")
-app = graph.compile()
+agent = graph.compile()
 #    print(app.get_graph().draw_mermaid())

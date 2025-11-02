@@ -16,3 +16,6 @@ format:
 run-dev:
 	uv run langgraph dev
 
+run-api:
+	uv run fastapi dev src/api/main.py
+

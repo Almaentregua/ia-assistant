@@ -12,7 +12,7 @@ def multiply(a: int, b: int) -> int:
     """
     print(f"Multiplying {a} and {b}")
     return a * b
-    
+
 
 agent = create_agent(
     model="openai:gpt-4o-mini",
